@@ -8,9 +8,7 @@
 
 3.安装过程禁止自动联网更新软件包
 
-##
-
-二、实验过程
+## 二、实验过程
 
 1.安装Ubuntu系统虚拟机，使用两个网卡，安装opensssh-server
 ![](https://github.com/canyousee/linux/raw/master/image/host.PNG)
@@ -34,54 +32,54 @@
 
 3.按实验指导进行
 
--在当前用户目录下创建一个用于挂载iso镜像文件的目录
+- 在当前用户目录下创建一个用于挂载iso镜像文件的目录
 mkdir loopdir
 
--挂载iso镜像文件到该目录
+- 挂载iso镜像文件到该目录
 mount -o loop ubuntu-16.04.4-server-amd64.iso loopdir
 
 ![](https://github.com/canyousee/linux/raw/master/image/code1.PNG)
 
--创建一个工作目录用于克隆光盘内容
+- 创建一个工作目录用于克隆光盘内容
 mkdir cd
  
--同步光盘内容到目标工作目录
--一定要注意loopdir后的这个/，cd后面不能有/
+- 同步光盘内容到目标工作目录
+- 一定要注意loopdir后的这个/，cd后面不能有/
 rsync -av loopdir/ cd
 
--卸载iso镜像
+- 卸载iso镜像
 umount loopdir
 
 ![](https://github.com/canyousee/linux/raw/master/image/code2.PNG)
 
--进入目标工作目录
+- 进入目标工作目录
 cd cd/
 
--编辑Ubuntu安装引导界面增加一个新菜单项入口
+- 编辑Ubuntu安装引导界面增加一个新菜单项入口
 vim isolinux/txt.cfg
 
 ![](https://github.com/canyousee/linux/raw/master/image/code3.PNG)
 
-将定制好的cfg通过psftp上传
+- 将定制好的cfg通过psftp上传
 
 ![](https://github.com/canyousee/linux/raw/master/image/putzzhi.PNG)
 
-重新生成md5sum.txt
+- 重新生成md5sum.txt
 
 ![](https://github.com/canyousee/linux/raw/master/image/chmod.PNG)
 
-修改isolinux/isolinux.cfg,增加内容timeout 10,然后输入sudo mkisofs -r -V "Custom Ubuntu Install CD" \
+- 修改isolinux/isolinux.cfg,增加内容timeout 10,然后输入sudo mkisofs -r -V "Custom Ubuntu Install CD" \
             -cache-inodes 
             -J -l -b isolinux/isolinux.bin 
             -c isolinux/boot.cat -no-emul-boot 
             -boot-load-size 4 -boot-info-table -o custom.iso ~/cd/
 
-最后通过get取出镜像
+- 最后通过get取出镜像
 
 ![](https://github.com/canyousee/linux/raw/master/image/get.PNG)
 
 ---
-##三、实验理解
+## 三、实验理解
 修改默认连接超时为5s
 
 修改dhc配置超时为5s
@@ -133,7 +131,7 @@ vim isolinux/txt.cfg
 ![](https://github.com/canyousee/linux/raw/master/image/1.7.PNG)
 
 ---
-##四、参考
+## 四、参考
 
 [https://www.centos.org/docs/5/html/Deployment_Guide-en-US/ch-lvm.html](https://www.centos.org/docs/5/html/Deployment_Guide-en-US/ch-lvm.html "LVM")
 
