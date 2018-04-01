@@ -4,19 +4,18 @@
 
 **支持命令行参数方式使用不同功能**
 
-![](image\h.PNG)
-
+![](image/h.PNG)
 
 **支持对jpeg格式图片进行图片质量压缩**
 
     
     bash work1.sh -j test1.jpg -q 50 test150.jpg
  
-![](image\1.3.PNG)  
+![](image/1.3.PNG)  
 
-![](image\test_1.PNG)
+![](image/test_1.PNG)
 
-![](image\test_!_1.PNG)
+![](image/test_!_1.PNG)
 
 
 
@@ -24,7 +23,7 @@
 
 默认质量压缩参数为92，重命名为原名
 
- ![](image\1.1.PNG)
+ ![](image/1.1.PNG)
 
 
 
@@ -32,20 +31,20 @@
     
 默认重命名为原名
 
-![](image\1.2.PNG)
+![](image/1.2.PNG)
 
 对错误参数的报错
 
-![](image\e1.PNG)
+![](image/e1.PNG)
 
 
 **支持对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率**
 
-![](image\2.PNG)
+![](image/2.PNG)
 
 **支持对图片批量添加自定义文本水印**
 
-![](image\3.PNG)
+![](image/3.PNG)
 
 
 **支持批量重命名（统一添加文件名前缀或后缀，不影响原始文件扩展名）**
@@ -54,15 +53,15 @@ ps：自动跳过png图片
 
 后缀
 
-![](image\4.1.PNG)
+![](image/4.1.PNG)
 
 前缀
 
-![](image\4.2.PNG)
+![](image/4.2.PNG)
 
 **支持将png图片统一转换为jpg格式图片**
 
-![](image\5.PNG)
+![](image/5.PNG)
 
 ---
 
@@ -76,35 +75,35 @@ ps：自动跳过png图片
 
 年龄最大的球员是谁？年龄最小的球员是谁？
  
-![](image\2.2.PNG)
+![](image/2.2.PNG)
 ---
 
 ## 2.任务2 ##
 
-![](image\2_3_1.PNG)
+![](image/2_3_1.PNG)
 
 **统计访问来源主机TOP 100和分别对应出现的总次数**
 
-![](image\2_3_2.PNG)
+![](image/2_3_2.PNG)
 
 **统计访问来源主机TOP 100 IP和分别对应出现的总次数**
 
-![](image\2_3_3.PNG)
+![](image/2_3_3.PNG)
 **统计最频繁被访问的URL TOP 100**
 
-![](image\2_3_4.PNG)
+![](image/2_3_4.PNG)
 
 **统计不同响应状态码的出现次数和对应百分比**
 
-![](image\2_3_7.PNG)
+![](image/2_3_7.PNG)
 
 **分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数**
 
-![](image\2_3_5.PNG)
+![](image/2_3_5.PNG)
 
 **给定URL输出TOP 100访问来源主机**
 
-![](image\2_3_6.PNG)
+![](image/2_3_6.PNG)
 
 ---
 
