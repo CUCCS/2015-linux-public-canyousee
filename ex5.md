@@ -53,6 +53,8 @@ wordpress和dvwa搭建在另一台虚拟机中，wordpress占用80端口，dvwa�
 
 ![](image/host.PNG)
 
+![](image/y1.PNG)
+
 - 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的友好错误提示信息页面-1
 
 ![](image/12.PNG)
@@ -96,6 +98,17 @@ wordpress和dvwa搭建在另一台虚拟机中，wordpress占用80端口，dvwa�
 ![](image/27.PNG)
 ![](image/28.PNG)
 ![](image/29.PNG)
+
+---
+# **三、实验问题** #
+
+做完以上步骤，重新启动两台虚拟机，却再也打不开wordpress和verynginx网页
+
+报错拒绝连接请求
+
+
+
+
 
 
 
