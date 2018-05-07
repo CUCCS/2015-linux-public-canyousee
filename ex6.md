@@ -5,16 +5,16 @@
 **FTP**
 
 - 实现匿名访问的FTP服务器，匿名访问者可以访问1个目录且仅有该目录及其所有子目录的只读访问权限，默认的共享目录为/srv/ftp
-  ![](image/3.PNG)
-  ![](image/1.PNG)
+  ![](imag/3.PNG)
+  ![](imag/1.PNG)
 - 配置一个支持用户名和密码方式访问的账号，该账号继承匿名访问者所有权限，且拥有对另1个独立目录及其子目录完整读写（包括创建目录、修改文件、删除文件等）权限； 共享目录为/home/canyousee
-  ![](image/2.PNG)
+  ![](imag/2.PNG)
 - 该账号仅可用于FTP服务访问，不能用于系统shell登录；
-  ![](image/6.PNG)
+  ![](imag/6.PNG)
 - FTP用户不能越权访问指定目录之外的任意其他目录和文件；
-  ![](image/5.PNG)
+  ![](imag/5.PNG)
 - 匿名访问权限仅限白名单IP来源用户访问，禁止白名单IP以外的访问；
-  ![](image/4.PNG)
+  ![](imag/4.PNG)
 
   使用ftpasswd创建passwd和group文件
 
@@ -37,20 +37,20 @@
    服务器ip：192.168.56.104
    客户端ip：
    192.168.56.201
-   ![](image/7.PNG)
+   ![](imag/7.PNG)
     配置一个只读一个读写访问权限，/var/nfs/test 为可读写的，/home为只读权限的
-   ![](image/9.PNG)
+   ![](imag/9.PNG)
     具有读写访问权限的文件夹，客户端写的文件，nfs服务器端可以看到
-   ![](image/8.PNG)
+   ![](imag/8.PNG)
     只有只读权限的文件夹，客户端不可以写文件
-   ![](image/10.PNG)
+   ![](imag/10.PNG)
     只有只读权限的文件夹，客户端可以看到nfs服务器端共享文件夹的内容
-   ![](image/11.PNG)
+   ![](imag/11.PNG)
 - NFS客户端上看到的：
    共享目录中文件、子目录的属主、权限信息
-  ![](image/12.PNG)
+  ![](imag/12.PNG)
    通过NFS客户端在NFS共享目录中新建的目录、创建的文件的属主、权限信息
-  ![](image/13.PNG)
+  ![](imag/13.PNG)
         
 参考链接：
 
@@ -60,30 +60,30 @@
 **DHCP和DNS**
         
 2台虚拟机使用Internal网络模式连接，其中一台虚拟机上配置DHCP服务，另一台服务器作为DHCP客户端，从该DHCP服务器获取网络地址配置
-![](image/27.PNG)
+![](imag/27.PNG)
 服务器配置
 
 - 修改server的/etc/network/interfaces
-![](image/20.PNG)
+![](imag/20.PNG)
 - 修改server的/etc/default/isc-dhcp-server
-![](image/21.PNG)
+![](imag/21.PNG)
 
 - 修改/etc/default/bind9
 
-![](image/23.PNG)
+![](imag/23.PNG)
 
 - 将/etc/bind/db.local复制成/etc/bind/db.cuc.edu.cn，修改db.cuc.edu.cn,db.192.168
-![](image/24.PNG)
-![](image/25.PNG)
+![](imag/24.PNG)
+![](imag/25.PNG)
 
 客户端配置
 
 - 编辑/etc/resolvconf/resolv.conf.d/head，并且更新
 
 	sudo resolvconf -u
-![](image/28.PNG)
-![](image/29.PNG)
-![](image/30.PNG)
+![](imag/28.PNG)
+![](imag/29.PNG)
+![](imag/30.PNG)
 
 参考链接：
 
@@ -95,21 +95,21 @@
 server：Ubuntu；client：windows
 
 - Ubuntu安装samba，创建共享专用用户smbuser
-  ![](image/6.PNG)
+  ![](imag/6.PNG)
 - 在/etc/samba/smb.conf里配置
-  ![](image/26.PNG)
+  ![](imag/26.PNG)
 - 配置之后
-  ![](image/17.PNG)
-  ![](image/18.PNG)
+  ![](imag/17.PNG)
+  ![](imag/18.PNG)
 - 在客户端windows中访问
-  ![](image/14.PNG)
-  ![](image/15.PNG)
-  ![](image/16.PNG)
+  ![](imag/14.PNG)
+  ![](imag/15.PNG)
+  ![](imag/16.PNG)
 
 server：windows；client：ubuntu
 
 - 在windows里配置共享
-  ![](image/19.PNG)
+  ![](imag/19.PNG)
 - 在Ubuntu中查看共享目录
 
 	smbclient -L 192.168.56.1 -U canyousee
@@ -122,11 +122,11 @@ server：windows；client：ubuntu
 一键部署
 
 本机准备
-![](image/32.PNG)
-![](image/33.PNG)
+![](imag/32.PNG)
+![](imag/33.PNG)
 
 目标机准备
-![](image/31.PNG)
+![](imag/31.PNG)
 
 
 
