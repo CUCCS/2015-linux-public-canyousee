@@ -1,0 +1,58 @@
+---
+
+
+
+- name: install proftpd
+  apt:
+    name: proftpd-basic
+    state: present
+    install_recommends: false
+    update_cache:       true
+
+- name: mkdir /srv/ftp
+  file:
+    path: /srv/ftp
+    owner: ftp
+    group: nogroup
+    state: directory
+
+- name: change usermod
+  command: usermod -d /srv/ftp ftp
+
+- name: mkdir /home/canyousee
+  file:
+    path: /home/canyousee
+    owner: 1024
+    group: 1024
+    mode: 0700
+    state: directory
+
+- name: mkdir /usr/local/etc/proftpd
+  file: 
+    path: /usr/local/etc/proftpd
+    state: directory
+
+- name: ftpasswd user
+  shell: echo canyousee | ftpasswd --passwd --file=/usr/local/etc/proftpd/passwd --name=canyousee --uid=1024 --home=/home/canyousee --shell=/bin/false --stdin
+
+- name: ftpasswd group
+  shell: ftpasswd --file=/usr/local/etc/proftpd/group --group --name=loginuser --gid=1024
+
+- name: user add to group
+  shell: ftpasswd --group --name=loginuser --gid=1024 --member=canyousee --file=/usr/local/etc/proftpd/group
+
+
+- name: replace
+  template: src=proftpd.conf dest=/etc/proftpd/proftpd.conf backup=yes
+  notify:
+    - proftpd restart
+
+
+
+
+
+
+
+
+
+
