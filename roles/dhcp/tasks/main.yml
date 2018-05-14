@@ -1,0 +1,23 @@
+---
+
+- name: install isc-dhcp-server
+  apt:
+    name: isc-dhcp-server
+    state: present
+
+- name: up the interface
+  shell: ifconfig enp0s8 up
+
+- name: set the ip of interface
+  shell: ifconfig enp0s8 192.168.128.15 netmask 255.255.255.0
+
+- name: replace
+  template: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server backup=yes
+
+- name:  replace
+  template: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf
+
+- name: restart 
+  service: 
+    name: isc-dhcp-server
+    state: restarted

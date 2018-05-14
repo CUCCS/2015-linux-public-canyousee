@@ -1,0 +1,49 @@
+---
+
+- name: install samba
+  apt:
+    name: samba
+    state: present
+
+- name: add samba user
+  user:
+    name: canyousee
+    shell: /sbin/nologin
+    createhome: no
+
+- name: passwd
+  shell: (echo canyousee; echo canyousee ) | passwd canyousee
+- name: smbpasswd
+  shell: (echo canyousee; echo canyousee) | smbpasswd -a -s canyousee
+
+- name: smbpasswd enable
+  command: smbpasswd -e canyousee
+
+- name: create group
+  group:
+    name: cuc
+    state: present
+
+- name: usermod
+  command: usermod -G cuc canyousee
+
+- name: mkdir /srv/samba/guest
+  file:
+    path: /srv/samba/guest
+    mode: 2775
+    group: cuc
+    state: directory
+  with_items: [samba,samba/guest]
+
+- name: mkdir /home/canyousee/private
+  file:
+    path: /home/canyousee/private
+    mode: 2770
+    group: cuc
+    state: directory
+
+- name: replace
+  template: src=smb.conf dest=/etc/samba/smb.conf backup=yes
+  notify:
+    - smbd stop
+    - smbd start

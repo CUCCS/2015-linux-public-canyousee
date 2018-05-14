@@ -1,0 +1,12 @@
+$TTL	604800
+@	IN	SOA	cuc.edu.cn. admin.cuc.edu.cn. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+	IN	NS	ns.cuc.edu.cn.
+ns	IN	A	192.168.128.15
+wp.sec.cuc.edu.cn.	IN	A       192.168.128.15
+dvwa.sec.cuc.edu.cn. IN CNAME wp.sec.cuc.edu.cn.

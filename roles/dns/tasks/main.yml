@@ -1,0 +1,16 @@
+---
+- name: install bind9
+  apt:
+    name: bind9
+    state: present
+
+- name: replace
+  template: src=db.cuc.edu.cn dest=/etc/bind/db.cuc.edu.cn backup=yes
+ 
+- name: replace2
+  template: src=named.conf.local dest=/etc/bind/named.conf.local
+
+- name: restart
+  service: 
+    name: bind9
+    state: restarted
